@@ -1,0 +1,356 @@
+/************************** variable ************************/
+@dark1_br: #3b2701;
+@dark2_br:#684909;
+@brown: #8b620d;
+@li1_green: #fff;
+@li2_green: #fff;
+@green: #8b9f53;
+@da1_green: #496402;
+@da2_green: #304102;
+
+/************************** end variable ********************/
+/***************** general css *******************/
+*{
+	padding:0;
+	margin:0;
+}
+body{
+	direction: rtl;
+	font-family: Tahoma;
+	color: @dark1_br;
+	line-height: 27px;
+	min-width: 950px;
+	//background-image:url('../images/bg.jpg');//bg9
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-color: #fff;
+	font-size:15px;
+	
+	text-align: justify;
+}
+.clear{
+	width:0px !important;
+	height:0px!important;
+	clear:both;
+	float:none !important;
+	border:none !important;
+	outline:none !important;
+}
+a img{
+	border:none;
+}
+a:active{
+	border:none ;
+}
+.title{
+	font-size: 16px;
+	font-style: oblique;
+}
+/************************** end general *********************/
+
+/************************** functions ***********************/
+.border-radius(@radius :5px){
+	border-radius:@radius ;
+	-webkit-border-radius:@radius ;
+	-moz-border-radius:@radius ;
+	-o-border-radius:@radius ;
+	-ms-border-radius:@radius ;
+}
+.transition(@property : all, @duration : 2s, @timingFunc : ease){
+	transition:@property @duration @timingFunc;
+	-webkit-transition:@property @duration @timingFunc ;
+	-moz-transition:@property @duration @timingFunc ;
+	-o-transition:@property @duration @timingFunc ;
+	-ms-transition:@property @duration @timingFunc;
+}
+// .opacity(@num){
+	// 	opacity: @num ;
+	//  filter: alpha(opacity = @num *100); //ask: syntax error
+// }
+.border(@color : gray){
+	border: solid 1px @color;
+}
+
+.outline(@color : gray){
+	outline:solid @color 1px;
+}
+.center{
+	text-align: center !important;
+}
+.ttl{
+	font-size:18px;
+}
+/************************** end functions **********************/
+div.backimg div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -19;
+	background-position: center ;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.main {
+	width: 950px;
+	height: 600px;
+	margin: 0 auto;
+	position: relative;
+}
+.menu{
+	//position: absolute;
+	//right: 70px;
+	//top: 50px;
+	width: 350px;
+	margin: 310px 0px 0 0;
+	float: right;
+	.nav{
+		//width: 465px;
+		ul{
+			list-style-type: none;
+
+			#li1{
+				background-image: url('../images/name.png') ;
+				width: 350px !important;
+				height: 36px !important;
+			}
+			#li2{
+				background-image: url('../images/about.png');
+				width: 278px !important;
+			}
+			#li3{
+				background-image: url('../images/txt.png');
+				width: 313px !important;
+			}
+			#li4{
+				background-image: url('../images/pic.png');
+				width: 345px !important;
+			}
+			#li5{
+				background-image: url('../images/film.png');
+				width:  345px!important;
+			}
+			#li6{
+				background-image: url('../images/link.png');
+				width: 322px!important;
+			}
+			#li7{
+				background-image: url('../images/contact.png');
+				width: 300px !important;
+			}
+			li {
+				.transition(all,0.7s);
+				display: block;
+				margin-top: 10px;
+				height: 30px;
+				background-image: url('../images/contact.png');
+				
+				a{	
+					text-align: right;
+					height: 40px;
+					text-decoration: none;
+					display: block;
+				}
+
+				&:hover{
+					background-position:bottom left;
+				}			
+			}
+		}
+	}
+}
+
+
+.content_plc {
+	width: 580px;
+	height: 600px;
+	//margin-right: 370px;
+	float: left; //opera margin ro bug dare dar inja bare hamin float midam
+	overflow: hidden;
+	position: relative;
+
+	div{
+		width: 515px;
+		max-height: 495px;
+		overflow: auto ;
+		padding:15px 30px;
+		text-align: justify;
+		background-image: url("../images/contentBg.png");
+		position: absolute;
+		right:-650px;
+		top: 500px;
+		border: solid @dark2_br 1px;
+		.border-radius(8px);
+
+		td{
+			padding: 5px;
+
+			input ,textarea{
+				.border-radius();
+				height: 27px;
+				width: 200px;
+				border: solid 2px  @dark2_br;
+				font-family: Tahoma;
+			}
+			textarea{
+				height: 150px;
+			}
+			input[type='submit']{
+				background-color: @dark1_br;
+				border-color: @brown ;
+				color: @li1_green ;
+				width: 120px;
+				height: 30px;
+				font-size: 16px;
+				&:hover{
+					background-color: @dark2_br;
+					border-color: @dark1_br ;
+				}
+			}			
+		}
+	}
+	#link a{
+			text-decoration: none;
+			padding: 3px;
+			color: @dark1_br;
+			&:hover{
+				color: @brown;
+				border-bottom: 1px solid @brown;
+			}
+		}
+}
+
+/***************************** gallery page css ********************************/
+.gallery_ttl{
+	padding: 3px;
+	margin: 2px auto 10px;
+	height: 30px;
+	border:ridge 5px #B5CEE7;
+	.transition(background-color,0.5s);
+}
+/*.pics{
+	//check  .pics nadarim
+	margin-right: 200px;
+	padding-right: 10px;
+	height: 650px;
+	background-image: url("../images/contentBg.png");
+}*/
+
+.gal_container{
+	margin-right: 237px;
+	padding-top: 40px ;
+	padding-right: 10px;
+	height:600px;
+	overflow: hidden;
+	width: 685px;
+	position: relative;				
+
+	.pic_plc{
+		background-image: url("../images/contentBg.png");
+		width: 655px;
+		max-height: 500px;
+		border: groove #b5cee7 5px;
+		position: absolute;
+		right: -750px;
+		padding: 20px 10px;
+
+		a > div ,.list_film > div{
+			border:solid 4px #000;
+			width: 180px;
+			height: 180px;
+			float: right;
+			margin: 5px 14px;
+			border: ridge #3a6c9d 5px;
+			overflow: hidden;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-color: #000;
+			.transition(all,0.7s);
+
+			.play_ico{
+				margin: 50px;
+				display: block;
+			}
+			.info{
+				width: 200px;
+				height: 40px;
+				margin: 75px 0px;
+				background-color: blue;
+				text-align:center;
+				opacity: 0;
+				.transition(all,0.7s);
+				color: #0e2033;
+				text-shadow:0px 10px 9px blue;
+				/*<!--[if IE]>
+				display: none;
+				<![endif]-->*/
+				}
+			&:hover{
+				border-color: blue  ;
+				opacity: 0.9;
+					.info{
+						opacity: 1;
+						/*<!--[if IE]>
+						display: block;
+						<![endif]-->*/
+					}
+				}
+		}
+	}
+}
+/*************************** film.php page ***************************/
+.film_plc{
+	height: 500px;
+
+	.show_film{
+		position: absolute;
+		height: 350px;
+		right: -1500px;
+
+		.video{
+			float: left;
+			width: 405px;
+			margin-left: 20px;
+
+			embed{
+				border: solid blue 5px;
+				position: absolute;
+			}
+		}
+		.describe{
+			margin-left: 455px;
+			margin-right: 10px;
+			padding-top: 15px;
+			text-align: justify;
+			height: 300px;
+			overflow: auto;
+			width: 200px;
+			line-height: 25px;
+			display: block;
+
+			p{
+				padding: 10px;
+				border: ridge 2px blue;
+				background-color: blue;
+			}
+		}
+	}
+	.list_film{
+		position: absolute;
+
+		> div{
+			background-color: #011120 !important;
+			position: relative;
+			cursor: pointer;
+			
+			div{
+				position: absolute;
+			}
+		}
+		.info{
+			margin: 0px !important;
+		}
+	}
+}
