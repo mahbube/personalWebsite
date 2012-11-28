@@ -2,6 +2,7 @@
 @dark1_br: #3b2701;
 @dark2_br:#684909;
 @brown: #8b620d;
+@light1_br: #ecd8b5;
 @li1_green: #fff;
 @li2_green: #fff;
 @green: #8b9f53;
@@ -9,6 +10,17 @@
 @da2_green: #304102;
 
 /************************** end variable ********************/
+/************************* font face ************************/
+@font-face {
+	font-family: "Nassim";
+	src: url("./fonts/nassim_bold.eot?#");
+	src: local("Nassim"),
+		url("./fonts/nassim_bold.woff") format("woff"),
+		url("./fonts/nassim_bold.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
+}
+/*********************** end font face **********************/
 /***************** general css *******************/
 *{
 	padding:0;
@@ -16,7 +28,6 @@
 }
 body{
 	direction: rtl;
-	font-family: Tahoma;
 	color: @dark1_br;
 	line-height: 27px;
 	min-width: 950px;
@@ -25,6 +36,8 @@ body{
 	background-position: center;
 	background-size: cover;
 	background-color: #fff;
+	font-family:  Tahoma;//"Nassim", "Times New Roman",
+	-webkit-font-smoothing: subpixel-antialiased ;
 	font-size:15px;
 	
 	text-align: justify;
@@ -44,6 +57,29 @@ a:active{
 	border:none ;
 }
 .title{
+	width:  250px;
+	height: 29px;
+	margin: 10px 0 ;
+	.transition(all,0.7s);
+	&:hover{
+		background-position:bottom left;
+	}
+}
+/*.title{
+	color:@light1_br;
+	background-color: @dark2_br;
+	font-size: 16px;
+	font-style: normal;	
+	padding: 3px 8px;
+	.border-radius();
+	.transition(all,0.2s);
+	&:hover{
+		font-style: oblique;
+		background-color: @light1_br;
+		color:@dark2_br;
+	}
+}*/
+.ttl{
 	font-size: 16px;
 	font-style: oblique;
 }
@@ -78,9 +114,7 @@ a:active{
 .center{
 	text-align: center !important;
 }
-.ttl{
-	font-size:18px;
-}
+
 /************************** end functions **********************/
 div.backimg div {
 	position: absolute;
@@ -171,7 +205,7 @@ div.backimg div {
 	overflow: hidden;
 	position: relative;
 
-	div{
+	> div{
 		width: 515px;
 		max-height: 495px;
 		overflow: auto ;
@@ -184,6 +218,18 @@ div.backimg div {
 		border: solid @dark2_br 1px;
 		.border-radius(8px);
 
+		.aboutttl{
+			background-image: url('../images/about.png');
+		}
+		.linkttl{
+			background-image: url('../images/link.png');
+		}
+		.contactttl{
+			background-image: url('../images/contact.png');
+		}
+		.textttl{
+			background-image: url('../images/txt.png');
+		}
 		td{
 			padding: 5px;
 
@@ -192,7 +238,6 @@ div.backimg div {
 				height: 27px;
 				width: 200px;
 				border: solid 2px  @dark2_br;
-				font-family: Tahoma;
 			}
 			textarea{
 				height: 150px;
@@ -203,6 +248,7 @@ div.backimg div {
 				color: @li1_green ;
 				width: 120px;
 				height: 30px;
+				font-family: Tahoma;
 				font-size: 16px;
 				&:hover{
 					background-color: @dark2_br;
@@ -239,30 +285,36 @@ div.backimg div {
 }*/
 
 .gal_container{
-	margin-right: 237px;
-	padding-top: 40px ;
-	padding-right: 10px;
-	height:600px;
+	width: 580px;
+	height: 600px;
+	//margin-right: 370px;
+	float: left; //opera margin ro bug dare dar inja bare hamin float midam
 	overflow: hidden;
-	width: 685px;
-	position: relative;				
+	position: relative;
 
 	.pic_plc{
+		width: 570px;
+		max-height: 520px;
+		overflow-x: hidden ;
+		overflow-y: auto ;
+		text-align: justify;
 		background-image: url("../images/contentBg.png");
-		width: 655px;
-		max-height: 500px;
-		border: groove #b5cee7 5px;
 		position: absolute;
-		right: -750px;
-		padding: 20px 10px;
-
+		right:-650px;
+		top: 500px;
+		border: solid @dark2_br 1px;
+		.border-radius(8px);
+		
+		.filmttl{
+			background-image: url('../images/film.png');
+		}
 		a > div ,.list_film > div{
-			border:solid 4px #000;
-			width: 180px;
-			height: 180px;
+			border: solid @brown 3px;
+			.border-radius(8px);
+			width: 240px;
+			height: 150px;
 			float: right;
 			margin: 5px 14px;
-			border: ridge #3a6c9d 5px;
 			overflow: hidden;
 			background-repeat: no-repeat;
 			background-position: center;
@@ -270,25 +322,25 @@ div.backimg div {
 			.transition(all,0.7s);
 
 			.play_ico{
-				margin: 50px;
+				margin: 35px 80px;
 				display: block;
 			}
 			.info{
-				width: 200px;
+				width: 245px;
 				height: 40px;
 				margin: 75px 0px;
-				background-color: blue;
+				background-color: fadeout(darken(@light1_br ,10%),40%);
 				text-align:center;
 				opacity: 0;
 				.transition(all,0.7s);
-				color: #0e2033;
-				text-shadow:0px 10px 9px blue;
+				color: darken(@dark2_br,30%);
+				text-shadow:0px 10px 9px dark1_br;
 				/*<!--[if IE]>
 				display: none;
 				<![endif]-->*/
 				}
 			&:hover{
-				border-color: blue  ;
+				border-color: lighten(@brown,10% ) ;
 				opacity: 0.9;
 					.info{
 						opacity: 1;
@@ -302,55 +354,154 @@ div.backimg div {
 }
 /*************************** film.php page ***************************/
 .film_plc{
-	height: 500px;
+	height: 520px;
+	.move{
+		width: 1160px;
+		margin-right: -580px;
+		position: relative;
+		.transition(all,2s);
+		.show_film{
+			position: absolute;
+			display: none;
+			width: 575px;
+			.video{
+				width: 500px;
+				height: 350px;
+				margin: 20px auto;
+				position: relative;
 
-	.show_film{
-		position: absolute;
-		height: 350px;
-		right: -1500px;
+				embed{
+					width: 400px;
+					height: 350px;
+					position: absolute;
+					display: none;
+				}
+				#red1{
+					display: none;
+				}
+				.film1{
+					display: none;
+				}
+				.backToList{
+					width: 100px;
+					height: 52px;
+					background-image: url('../images/back.png');
+					position: absolute;
+					top: 100px;
+					right: 407px;
+					cursor: pointer;
+					.transition(all,0.5s);
+					&:hover{
+						right:418px;
+					}
+				}
+			}
+			.describe{
+				margin: 20px;
+				text-align: justify;
+				width: 500px;
+				line-height: 25px;
+				display: block;
 
-		.video{
-			float: left;
-			width: 405px;
-			margin-left: 20px;
-
-			embed{
-				border: solid blue 5px;
-				position: absolute;
+				.des_con{
+					padding: 10px;
+					background-color: darken(@light1_br, 10%);
+					border:solid 1px @brown ;
+					.border-radius() ;
+					margin-bottom: 20px;
+				}
 			}
 		}
-		.describe{
-			margin-left: 455px;
-			margin-right: 10px;
-			padding-top: 15px;
-			text-align: justify;
-			height: 300px;
-			overflow: auto;
-			width: 200px;
-			line-height: 25px;
-			display: block;
+		.list_film{
+			position: absolute;
+			//display: none;
+			width: 575px;
+			right: 580px;
 
-			p{
-				padding: 10px;
-				border: ridge 2px blue;
-				background-color: blue;
+			> div{
+				background-color: darken(@dark2_br, 20%) !important; 
+				margin: 15px !important;
+				position: relative;
+				cursor: pointer;
+				
+				div{
+					position: absolute;
+				}
+			}
+			.info{
+				margin: 0px !important;
 			}
 		}
 	}
-	.list_film{
-		position: absolute;
+}
+#film_paging{
+	top: 370px !important;
+	position: absolute;
+	right: 580px;
+}
+.paging{
+	//display: none;
+	width: 480px;
+	margin: 5px 20px;
+	padding: 20px;
 
-		> div{
-			background-color: #011120 !important;
-			position: relative;
-			cursor: pointer;
-			
-			div{
-				position: absolute;
+	ul{
+		list-style-type: none;
+		li{
+			float: left;
+			width: 20px;
+			height: 25px;
+			border: solid @dark2_br 2px;
+			text-align: center;
+			margin: 3px;
+			background-color: darken(@dark2_br,20%);
+			.border-radius();
+			color: @brown;
+			a{
+				display: block;
+				width: inherit;
+				height: inherit;
+				text-decoration: none;
+				color: @brown;
+			}
+			&:hover{
+				background-color: @brown;
+				border-color: darken(@dark2_br,20%);
+				a{
+					color: darken(@dark2_br,20%);
+				}
 			}
 		}
-		.info{
-			margin: 0px !important;
+	}
+}
+/***************************************** txt.php********************************/
+#container_text{
+	> div{
+		padding: 0 15px;
+		margin-bottom: 30px;
+		h4{
+			color: #684909;
+			padding: 10px;
+			a{
+				text-decoration: none;
+				color: #684909
+			}
+		}
+		hr{
+			color: @dark1_br;
+			background-color: @dark1_br;
+			height:1px;
+			border-width:0;
+		}
+		.contiue_link{
+			float: left;
+			a{
+				text-decoration: none;
+				color: @dark2_br;
+				&:hover{
+					color:@brown
+				}
+			}
 		}
 	}
 }

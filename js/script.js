@@ -43,7 +43,8 @@ $(function(){
 
 	//gallery
 	$('.pic_plc').animate({
-		right : 0
+		right : 0 ,
+		top: '70px'
 	},1000,'swing')
 	// $('.gallery a>div').animate({
 	// 	height: '200px'
@@ -68,17 +69,27 @@ function showContent(div){
 	
 }
 function playVideo(videoName){
-	//$('#myfilm').attr('src' ,'videos/'+videoName);
-	//alert($('#myfilm').attr('src'));
-	$('#'+videoName).css({
-		zIndex: 1 ,
-	})
-	$('.list_film').animate({
-		right: '1500px' ,
-	},2000,'swing');
+	$('.show_film').css({
+		display: 'block' ,
+	});
 
-	$('.show_film').animate({
-		right: '0px',
+	$('#'+videoName).css({
+		display: 'block' ,
+	});
+
+	$('.move').animate({
+		marginRight: '0px'
 	},2000,'swing')
-	
+}
+function showList(){
+	$('.move').animate({
+		marginRight: '-580px'
+	},2000,'swing',function(){
+		$('.show_film').css({
+			display: 'none' ,
+		});
+		$('.video embed').css({
+			display: 'none' ,
+		});
+	});	
 }
